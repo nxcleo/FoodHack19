@@ -41,8 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.tv_dish_title.setText(mData.get(position).getTitle());
         holder.img_dish_thumbnail.setImageResource(mData.get(position).getThumbnail());
-
     }
+
     @Override
     public int getItemCount(){
         return mData.size();
