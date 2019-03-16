@@ -172,6 +172,7 @@ public class SearchFragment extends Fragment {
 
 
     public ArrayList<Ingredent> toIngredent(String query) {
+        query = query.toLowerCase();
         ArrayList<Ingredent> results = new ArrayList<Ingredent>();
         String[] keywords = query.split(" ");
         for (int i = 0; i < MainActivity.ingreds.size(); i++) {

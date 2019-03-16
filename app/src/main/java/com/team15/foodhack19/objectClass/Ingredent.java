@@ -1,9 +1,10 @@
 package com.team15.foodhack19.objectClass;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Ingredent {
+public class Ingredent implements Serializable {
     private ArrayList<String> altNames;
     private String type;
     private String imageUrl;

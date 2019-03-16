@@ -15,10 +15,10 @@ public class Receipe implements Serializable {
     private int likes;
     private String name;
     private String desc;
-    private String imageURL;
+    private int imageID;
 
 
-    public Receipe(ArrayList<Ingredent> ingreds, ArrayList<Step> steps, String author, String author_title, int likes, String name, String desc, String imageURL){
+    public Receipe(ArrayList<Ingredent> ingreds, ArrayList<Step> steps, String author, String author_title, int likes, String name, String desc, int imageID){
         this.ingreds = ingreds;
         this.steps = steps;
         this.author = author;
@@ -26,7 +26,7 @@ public class Receipe implements Serializable {
         this.likes = likes;
         this.name = name;
         this.desc = desc;
-        this.imageURL = imageURL;
+        this.imageID = imageID;
     };
 
     public int getLikes() {
@@ -45,8 +45,8 @@ public class Receipe implements Serializable {
         return desc;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public int imageID() {
+        return imageID;
     }
 
     public String getName() {

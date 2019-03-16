@@ -1,9 +1,9 @@
 package com.team15.foodhack19.objectClass;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Enumeration;
 
-public class Step
+public class Step implements Serializable
 {
     public enum StepType { ADDITEM, STIR, BREW, FINISH }
     private StepType type;
@@ -39,6 +39,14 @@ public class Step
 
     public void setType(StepType type) {
         this.type = type;
+    }
+    public String toString(){
+      if (this.type == StepType.ADDITEM){
+        return "Add " + this.ingreds.get(0).getName();
+      }
+      else{
+        return "Brew for " + this.time + " minutes.";
+      }
     }
 
 }

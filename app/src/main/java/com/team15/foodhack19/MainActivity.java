@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Receipe receipe1 = new Receipe(ingreds, steps, "Adam Smith", "Baker of Nations",
                 3100, "Beef Stew", "Great tasting stew made easy with home ingredents",
-                "https://static01.nyt.com/images/2016/11/15/dining/15COOKING-OLD-BEEF-STEW2/15COOKING-OLD-BEEF-STEW2-articleLarge.jpg");
+          R.drawable.beef);
         receipes = new ArrayList<Receipe>(){{add(receipe1);add(receipe1);add(receipe1);add(receipe1);add(receipe1);}};
 
         // Below is testInstance from Siyang Sun

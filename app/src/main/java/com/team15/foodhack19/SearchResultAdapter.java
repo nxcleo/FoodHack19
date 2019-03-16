@@ -32,7 +32,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         this.receipes = receipes;
 
     }
-    private static String coolFormat(double n, int iteration) {
+    public static String coolFormat(double n, int iteration) {
         char[] c = new char[]{'k', 'm', 'b', 't'};
         double d = ((long) n / 100) / 10.0;
         boolean isRound = (d * 10) %10 == 0;//true if the decimal part is equal to 0 (then it's trimmed anyway)
@@ -54,8 +54,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
-        viewHolder.img_bg.setImageResource(R.drawable.beef);
-        Log.d(TAG, "onBindViewHolder: " + receipes.get(i).getImageURL());
+        viewHolder.img_bg.setImageResource(receipes.get(i).imageID());
         viewHolder.txt_like_num.setText(coolFormat((double) receipes.get(i).getLikes(), 0));
         viewHolder.txt_profile_name.setText(receipes.get(i).getAuthor());
         viewHolder.txt_profile_title.setText(receipes.get(i).getAuthor_title());
@@ -64,7 +63,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
           @Override
           public void onClick(View v) {
             Intent startIntent = new Intent(mContext, recipeDetailActivity.class);
-            startIntent.putExtra("recipe", receipes.get(viewHolder.getAdapterPosition()));
+            startIntent.putExtra("recipe", viewHolder.getAdapterPosition());
             Log.d("JAM", "onClick: Intent packed");
             mContext.startActivity(startIntent);
           }

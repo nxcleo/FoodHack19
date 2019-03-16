@@ -35,4 +35,3 @@ public class RecipeFragment extends Fragment {
         return recipeView;
     }
 }
-
