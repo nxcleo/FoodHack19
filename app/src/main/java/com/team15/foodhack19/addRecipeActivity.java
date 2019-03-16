@@ -39,7 +39,7 @@ public class addRecipeActivity extends Activity {
             return;
         }
 
-        Receipe r = new Receipe(null, null, authorString, "", 0, titleString, descString, null);
+        Receipe r = new Receipe(null, null, authorString, "", 0, titleString, descString, 0);
         mCondition.push().setValue(r);
 
         String text = "Added Successfully";
