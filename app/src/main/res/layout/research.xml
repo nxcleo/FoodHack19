@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    android:id="@+id/searchConstraintLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background">
 
     <Button
         android:id="@+id/btn_search"
-        android:layout_width="46dp"
-        android:layout_height="45dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/ic_search_white"
+        android:onClick="goSearch"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tomatoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/blackfilter"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="73dp" />
 
     <FrameLayout
-        android:layout_width="377dp"
-        android:layout_height="625dp"
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -29,26 +39,295 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchText">
+        app:layout_constraintTop_toBottomOf="@+id/searchText"
+        app:layout_constraintVertical_bias="0.0">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/filterConstraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/main_ingridientTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Main Ingridient"
+                android:textColor="#ffffff"
+                android:textSize="80px"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/beef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:onClick="clickBeef"
+                android:text="Beef"
+                android:textSize="70px"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/chicken"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_ingridientTextView"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/chicken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Chicken"
+                android:textSize="70px"
+                android:clickable="true"
+                android:onClick="clickChicken"
+                app:layout_constraintEnd_toStartOf="@+id/fish"
+                app:layout_constraintHorizontal_bias="0.439"
+                app:layout_constraintStart_toEndOf="@+id/beef"
+                app:layout_constraintTop_toBottomOf="@+id/main_ingridientTextView"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/fish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Fish"
+                android:textSize="70px"
+                android:clickable="true"
+                android:onClick="clickFish"
+                app:layout_constraintEnd_toStartOf="@+id/pork"
+                app:layout_constraintStart_toEndOf="@+id/chicken"
+                app:layout_constraintTop_toBottomOf="@+id/main_ingridientTextView"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/pork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:text="Pork"
+                android:textSize="70px"
+                android:clickable="true"
+                android:onClick="clickPork"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fish"
+                app:layout_constraintTop_toBottomOf="@+id/main_ingridientTextView"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:text="Secondary"
+                android:textColor="#ffffff"
+                android:textSize="80px"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/vegeView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beef" />
+
+            <TextView
+                android:id="@+id/onion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:onClick="clickOnion"
+                android:text="Onion"
+                android:textSize="70px"
+                app:layout_constraintEnd_toStartOf="@+id/potato"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/secondary"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/potato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:onClick="clickPotato"
+                android:text="Potato"
+                android:textSize="70px"
+                app:layout_constraintEnd_toStartOf="@+id/mushroom"
+                app:layout_constraintStart_toEndOf="@+id/onion"
+                app:layout_constraintTop_toBottomOf="@+id/secondary"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/mushroom"
+                android:layout_width="142dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:onClick="clickMushroom"
+                android:text="Mushroom"
+                android:textSize="70px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/potato"
+                app:layout_constraintTop_toBottomOf="@+id/secondary"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/egg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:onClick="clickEgg"
+                android:text="Egg"
+                android:textSize="70px"
+                app:layout_constraintEnd_toStartOf="@+id/carrot"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tomato"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/carrot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:onClick="clickCarrot"
+                android:text="Carrot"
+                android:textSize="70px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/egg"
+                app:layout_constraintTop_toBottomOf="@+id/broccoli"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tomato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:onClick="clickTomato"
+                android:text="Tomato"
+                android:textSize="70px"
+                app:layout_constraintEnd_toStartOf="@+id/corn"
+                app:layout_constraintHorizontal_bias="0.584"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/onion"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/corn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:onClick="clickCorn"
+                android:text="Corn"
+                android:textSize="70px"
+                app:layout_constraintEnd_toStartOf="@+id/broccoli"
+                app:layout_constraintStart_toEndOf="@+id/tomato"
+                app:layout_constraintTop_toBottomOf="@+id/potato"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+
+                android:id="@+id/broccoli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:onClick="clickBroccoli"
+                android:text="Broccoli"
+                android:textSize="70px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/corn"
+                app:layout_constraintTop_toBottomOf="@+id/mushroom"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/meatView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="120dp"
+                android:background="@drawable/ic_meat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/main_ingridientTextView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/vegeView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="176dp"
+                android:background="@drawable/ic_tomato"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chicken" />
+
+        </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 
     <EditText
         android:id="@+id/searchText"
-        android:layout_width="333dp"
-        android:layout_height="45dp"
+        android:layout_width="338dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/round_edittext"
         android:contentDescription="Keyword"
         android:ems="10"
         android:hint="Keyword"
         android:inputType="text"
         app:layout_constraintEnd_toStartOf="@+id/btn_search"
+        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +336,7 @@
         android:layout_width="match_parent"
         android:layout_height="637dp"
         android:layout_marginTop="28dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/searchText"
         tools:layout_editor_absoluteX="0dp" />
 

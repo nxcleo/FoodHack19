@@ -72,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
         mRef= FirebaseDatabase.getInstance().getReference();
 
     }
-    public void goSearch(View view){
-        startActivity(new Intent(this, recipeDetailActivity.class));
-    }
 
     @Override
     protected void onStart() {
