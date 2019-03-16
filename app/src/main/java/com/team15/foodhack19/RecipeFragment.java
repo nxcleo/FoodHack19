@@ -28,6 +28,7 @@ public class RecipeFragment extends Fragment {
         recipeView = inflater.inflate(R.layout.recipe, container, false);
 
 
+
         viewPager = (ViewPager)recipeView.findViewById(R.id.imageRecipe);
         adapter = new ViewPagerAdapter(this.getActivity(),images);
         viewPager.setAdapter(adapter);

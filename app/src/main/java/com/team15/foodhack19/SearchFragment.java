@@ -1,5 +1,6 @@
 package com.team15.foodhack19;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,8 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         searchView = inflater.inflate(R.layout.research, container, false);
-
+        View v = searchView.findViewById(R.id.searchConstraintLayout);
+        v.getBackground().setAlpha(160);
         Button btn_search = searchView.findViewById(R.id.btn_search);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override

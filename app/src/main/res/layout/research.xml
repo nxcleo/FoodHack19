@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/searchConstraintLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background">
 
     <Button
         android:id="@+id/btn_search"
-        android:layout_width="87dp"
-        android:layout_height="49dp"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:text="Search"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_search_white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goSearch"
+        />
 
     <FrameLayout
         android:layout_width="377dp"
@@ -23,7 +27,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,11 +40,10 @@
 
     <EditText
         android:id="@+id/searchText"
-        android:layout_width="241dp"
+        android:layout_width="333dp"
         android:layout_height="45dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_edittext"
         android:contentDescription="Keyword"
         android:ems="10"
         android:hint="Keyword"

@@ -2,5 +2,5 @@
     <string name="app_name">FoodHack19</string>
     <string name="title_home">Recipe</string>
     <string name="title_dashboard">Search</string>
-    <string name="title_notifications">Favoriate</string>
+    <string name="title_notifications">Favourite</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.team15.foodhack19;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -70,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
         mRef= FirebaseDatabase.getInstance().getReference();
 
-
+    }
+    public void goSearch(View view){
+        startActivity(new Intent(this, recipeDetailActivity.class));
     }
 
     @Override
@@ -121,18 +124,16 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentLayout, search, "searchFragment")
                             .commit();
-
                     return true;
                 case R.id.navigation_favoriate:
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentLayout, favoriate, "favoriateFragment")
                             .commit();
 
-                    RecyclerView myrv = (RecyclerView)findViewById(R.id.recyclerview_id);
-                    RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getApplicationContext(),lstDish);
-                    // myrv.setLayoutManager(new GridLayoutManager(getApplication(),3));
-                    // myrv.setAdapter(myAdapter);
-
+//                    RecyclerView myrv = (RecyclerView)findViewById(R.id.recyclerview_id);
+//                    RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getApplicationContext(),lstDish);
+//                    myrv.setLayoutManager(new GridLayoutManager(getApplication(),3));
+//                    myrv.setAdapter(myAdapter);
                     return true;
             }
             return false;
