@@ -1,9 +1,13 @@
 package com.team15.foodhack19.objectClass;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Receipe {
+public class Receipe implements Serializable {
     private ArrayList<Ingredent> ingreds;
     private ArrayList<Step> steps;
     private String author;
@@ -12,7 +16,6 @@ public class Receipe {
     private String name;
     private String desc;
     private String imageURL;
-    private String uuid = UUID.randomUUID().toString();
 
 
     public Receipe(ArrayList<Ingredent> ingreds, ArrayList<Step> steps, String author, String author_title, int likes, String name, String desc, String imageURL){

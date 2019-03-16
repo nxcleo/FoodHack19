@@ -17,7 +17,6 @@
         android:background="@drawable/ic_search_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="goSearch"
         />
 
     <FrameLayout
@@ -42,6 +41,7 @@
         android:id="@+id/searchText"
         android:layout_width="333dp"
         android:layout_height="45dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/round_edittext"
         android:contentDescription="Keyword"
@@ -49,7 +49,6 @@
         android:hint="Keyword"
         android:inputType="text"
         app:layout_constraintEnd_toStartOf="@+id/btn_search"
-        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

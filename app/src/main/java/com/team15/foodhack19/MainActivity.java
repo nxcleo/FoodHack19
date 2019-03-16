@@ -167,8 +167,6 @@ public class MainActivity extends AppCompatActivity {
         lstDish.add(new Dish("Creamy Lemon Garlic Salmon","Category Book","Description Book",R.drawable.salmon));
     }
 
-
-
     public SearchResultAdapter setSearchResult(ArrayList<Receipe> results){
         return new SearchResultAdapter(this, results);
     }

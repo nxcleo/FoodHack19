@@ -1,15 +1,20 @@
 package com.team15.foodhack19;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,13 +53,22 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         viewHolder.img_bg.setImageResource(R.drawable.beef);
         Log.d(TAG, "onBindViewHolder: " + receipes.get(i).getImageURL());
         viewHolder.txt_like_num.setText(coolFormat((double) receipes.get(i).getLikes(), 0));
         viewHolder.txt_profile_name.setText(receipes.get(i).getAuthor());
         viewHolder.txt_profile_title.setText(receipes.get(i).getAuthor_title());
         viewHolder.txt_receipe_Name.setText(receipes.get(i).getName());
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            Intent startIntent = new Intent(mContext, recipeDetailActivity.class);
+            startIntent.putExtra("recipe", receipes.get(viewHolder.getAdapterPosition()));
+            Log.d("JAM", "onClick: Intent packed");
+            mContext.startActivity(startIntent);
+          }
+        });
     }
 
     @Override
