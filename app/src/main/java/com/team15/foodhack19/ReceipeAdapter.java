@@ -21,7 +21,7 @@ public class ReceipeAdapter extends ArrayAdapter<Receipe> {
         // Get the data item for this position
         Receipe receipe = getItem(position);
 
-        // convertView = LayoutInflater.from(getContext()).inflate(R.layout.receipe_item, parent, false);
+//        convertView = LayoutInflater.from(getContext()).inflate(R.layout.receipe_item, parent, false);
 
         // Lookup view for data population
 //        TextView timeStamp = convertView.findViewById(R.id.timestamp);

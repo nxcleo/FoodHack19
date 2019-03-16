@@ -2,9 +2,11 @@ package com.team15.foodhack19;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,16 +32,22 @@ public class addRecipeActivity extends Activity {
         String authorString = author.getText().toString();
         String descString = desc.getText().toString();
         if (titleString.trim().length() == 0 || authorString.trim().length() == 0 || descString.trim().length() == 0){
-            Toast toast = new Toast(this);
-            toast.setText("You still have empty field to complete!");
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.show();
+            String text = "You still have empty field to complete!";
+            int duration = Snackbar.LENGTH_SHORT;
+
+            Snackbar.make(view, text, duration).show();
             return;
         }
 
         Receipe r = new Receipe(null, null, authorString, "", 0, titleString, descString, null);
         mCondition.push().setValue(r);
 
+        String text = "Added Successfully";
+        int duration = Snackbar.LENGTH_LONG;
+        Snackbar.make(view, text, duration).show();
+        title.setText("");
+        author.setText("");
+        desc.setText("");
     }
 
     public void cancelClicked(View view){
@@ -62,9 +70,12 @@ public class addRecipeActivity extends Activity {
     protected void onStart() {
         super.onStart();
         mCondition = mRef.child("receipes");
+
         mCondition.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                Receipe newReceipe = dataSnapshot.getValue(Receipe.class);
+
 //                data.add(dataSnapshot.getValue(ForecastStatus.class));
 //                itemsAdapter.notifyDataSetChanged();
             }
