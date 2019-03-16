@@ -8,7 +8,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -39,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     List<Dish> lstDish;
 
-    private ArrayList<Ingredent> ingreds;
-    private ArrayList<Step> steps;
-    private ArrayList<Receipe> receipes;
+    public static ArrayList<Ingredent> ingreds;
+    public static ArrayList<Step> steps;
+    public static ArrayList<Receipe> receipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         testInstance();
 
         mRef= FirebaseDatabase.getInstance().getReference();
+
+
     }
 
     @Override
@@ -114,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentLayout, search, "searchFragment")
                             .commit();
+
                     return true;
                 case R.id.navigation_favoriate:
                     getSupportFragmentManager().beginTransaction()
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         final Receipe receipe1 = new Receipe(ingreds, steps, "Adam Smith", "Baker of Nations",
                 3100, "Beef Stew", "Great tasting stew made easy with home ingredents",
                 "https://static01.nyt.com/images/2016/11/15/dining/15COOKING-OLD-BEEF-STEW2/15COOKING-OLD-BEEF-STEW2-articleLarge.jpg");
-        receipes = new ArrayList<Receipe>(){{add(receipe1);}};
+        receipes = new ArrayList<Receipe>(){{add(receipe1);add(receipe1);add(receipe1);add(receipe1);add(receipe1);}};
 
         // Below is testInstance from Siyang Sun
         lstDish = new ArrayList<>();
@@ -158,44 +165,11 @@ public class MainActivity extends AppCompatActivity {
         lstDish.add(new Dish("Creamy Lemon Garlic Salmon","Category Book","Description Book",R.drawable.salmon));
     }
 
-    public ArrayList<Ingredent> toIngredent(String query){
-        ArrayList<Ingredent> results = new ArrayList<Ingredent>();
-        String[] keywords = query.split(" ");
-        for(int i=0; i<this.ingreds.size(); i++){
-            for(int j=0; j<keywords.length; j++){
-                for(int k=0; k<this.ingreds.get(i).getAltNames().size(); k++){
-                    if(this.ingreds.get(i).getAltNames().get(k).equals(keywords[j])){
-                        results.add(this.ingreds.get(i));
-                        break;
-                    }
-                }
-            }
-        }
-        return results;
+
+
+    public SearchResultAdapter setSearchResult(ArrayList<Receipe> results){
+        return new SearchResultAdapter(this, results);
     }
 
-    public ArrayList<Receipe> receipeSearch(ArrayList<Ingredent> ingreds) {
-        ArrayList<Receipe> results = new ArrayList<Receipe>();
 
-        for(int i=0; i<this.receipes.size(); i++)
-        {
-            boolean added = false;
-            for(int j=0; j<this.receipes.get(i).getIngreds().size(); j++)
-            {
-                for(int k=0; k<ingreds.size(); k++)
-                {
-                    if (this.receipes.get(i).getIngreds().get(j).getUuid().equals(ingreds.get(k).getUuid())){
-                        results.add(this.receipes.get(i));
-                        added = true;
-                        break;
-                    }
-                }
-                if (added) {break;}
-            }
-
-        }
-
-
-        return results;
-    }
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_search"
         android:layout_width="87dp"
         android:layout_height="49dp"
         android:layout_marginTop="12dp"
@@ -23,6 +23,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </FrameLayout>
 
     <EditText
@@ -44,9 +45,18 @@
         android:ems="10"
         android:hint="Keyword"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/btn_search"
         app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_searchresults"
+        android:layout_width="match_parent"
+        android:layout_height="637dp"
+        android:layout_marginTop="28dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/searchText"
+        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>
