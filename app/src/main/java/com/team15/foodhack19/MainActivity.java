@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Step> steps;
     public static ArrayList<Receipe> receipes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
