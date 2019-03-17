@@ -1,15 +1,18 @@
 package com.team15.foodhack19;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.circularreveal.CircularRevealWidget;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +20,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -28,6 +32,8 @@ import com.team15.foodhack19.objectClass.Dish;
 import com.team15.foodhack19.objectClass.Ingredent;
 import com.team15.foodhack19.objectClass.Receipe;
 import com.team15.foodhack19.objectClass.Step;
+import com.team15.foodhack19.objectClass.About;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Ingredent> ingreds;
     public static ArrayList<Step> steps;
     public static ArrayList<Receipe> receipes;
-
+    ActionBar actionbar;
+    TextView appTitle;
+    RelativeLayout.LayoutParams layoutparams;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,11 +95,50 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
         testInstance();
-
+        ActionBarTitleGravity();
         mRef= FirebaseDatabase.getInstance().getReference();
 
     }
 
+    private void ActionBarTitleGravity() {
+        actionbar = getSupportActionBar();
+
+        appTitle = new TextView(getApplicationContext());
+
+        layoutparams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        appTitle.setLayoutParams(layoutparams);
+
+        appTitle.setText("Eatime");
+        appTitle.setTextColor(Color.WHITE);
+
+        appTitle.setGravity(Gravity.CENTER);
+
+        appTitle.setTextSize(25);
+
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        actionbar.setCustomView(appTitle);
+    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu, menu);
+//        return true;
+//    }
+//
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case R.id.about:
+//                startActivity(new Intent(this, About.class));
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//
+//    }
     @Override
     protected void onStart() {
         super.onStart();

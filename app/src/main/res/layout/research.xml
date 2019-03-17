@@ -138,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 android:text="Secondary"
                 android:textColor="#ffffff"
@@ -246,14 +246,14 @@
                 android:clickable="true"
                 android:onClick="clickTomato"
                 android:text="Tomato"
+                android:textColor="#ffffff"
                 android:textSize="70px"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/corn"
                 app:layout_constraintHorizontal_bias="0.584"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/onion"
-                android:textColor="#ffffff"
-                android:textStyle="bold"/>
+                app:layout_constraintTop_toBottomOf="@+id/onion" />
 
             <TextView
                 android:id="@+id/corn"
@@ -305,7 +305,7 @@
                 android:id="@+id/vegeView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="176dp"
                 android:background="@drawable/ic_tomato"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -339,5 +339,5 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/searchText"
         tools:layout_editor_absoluteX="0dp" />
-
+<!--Photo by Brooke Lark on Unsplash-->
 </android.support.constraint.ConstraintLayout>
