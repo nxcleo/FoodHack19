@@ -41,6 +41,32 @@
     app:layout_constraintTop_toBottomOf="@+id/dishname" />
 
   <TextView
+    android:id="@+id/txt_ing"
+    android:layout_width="353dp"
+    android:layout_height="78dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="8dp"
+    android:text="Ingrident"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ingrident" />
+
+  <TextView
+    android:id="@+id/txt_steps"
+    android:layout_width="349dp"
+    android:layout_height="252dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="8dp"
+    android:text="Ingrident"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/step" />
+
+  <TextView
     android:id="@+id/step"
     android:layout_width="0dp"
     android:layout_height="25dp"
@@ -109,30 +135,5 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:layout_constraintGuide_begin="20dp" />
-
-  <EditText
-    android:id="@+id/txt_ing"
-    android:layout_width="379dp"
-    android:layout_height="96dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:ems="10"
-    android:inputType="textMultiLine"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/ingrident" />
-
-  <EditText
-    android:id="@+id/txt_steps"
-    android:layout_width="388dp"
-    android:layout_height="340dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    android:ems="10"
-    android:inputType="textMultiLine"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/step" />
 
 </android.support.constraint.ConstraintLayout>
