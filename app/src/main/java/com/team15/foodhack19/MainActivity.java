@@ -219,7 +219,19 @@ public class MainActivity extends AppCompatActivity {
         final Receipe receipe1 = new Receipe(ingreds, steps, "Adam Smith", "Baker of Nations",
                 3100, "Beef Stew", "Great tasting stew made easy with home ingredents",
           R.drawable.beef);
-        receipes = new ArrayList<Receipe>(){{add(receipe1);add(receipe1);add(receipe1);add(receipe1);add(receipe1);}};
+
+        final Receipe receipe2 = new Receipe(ingreds, steps, "Carathy", "Iron Local Cheff",
+                387410000, "Beef Stew", "Great tasting stew made easy with home ingredents",
+          R.drawable.sadwitch);
+
+        final Receipe receipe3 = new Receipe(ingreds, steps, "Sarah", "Burnt This One",
+                59831298, "Beef Stew", "Great tasting stew made easy with home ingredents",
+          R.drawable.salmonbro);
+
+        final Receipe receipe4 = new Receipe(ingreds, steps, "Alicia", "I make food",
+                12923809, "Beef Stew", "Great tasting stew made easy with home ingredents",
+          R.drawable.toast);
+        receipes = new ArrayList<Receipe>(){{add(receipe1);add(receipe2);add(receipe3);add(receipe4);add(receipe1);}};
 
         // Below is testInstance from Siyang Sun
         lstDish = new ArrayList<>();

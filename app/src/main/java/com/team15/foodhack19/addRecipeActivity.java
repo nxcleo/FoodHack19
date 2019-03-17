@@ -74,7 +74,7 @@ public class addRecipeActivity extends Activity {
         mCondition.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Receipe newReceipe = dataSnapshot.getValue(Receipe.class);
+                //Receipe newReceipe = dataSnapshot.getValue(Receipe.class);
 
 //                data.add(dataSnapshot.getValue(ForecastStatus.class));
 //                itemsAdapter.notifyDataSetChanged();
